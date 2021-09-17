@@ -1,0 +1,30 @@
+{
+  "name": "orm-ecommerce-backend",
+  "version": "1.0.0",
+  "description": "Object Relational Mapping (ORM) E-Commerce back end with MySQL database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssharp0/orm-ecommerce-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssharp0/orm-ecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/ssharp0/orm-ecommerce-backend#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

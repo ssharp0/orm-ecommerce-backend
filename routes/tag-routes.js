@@ -15,11 +15,9 @@ router.get('/tags', (req, res) => {
       attribtues: ['product_name', 'product_price', 'product_stock', 'category_id']
     }
   })
-    // then return the response json tags data
-    // .then(tagsData => res.json(tagsData))
     // then for response
     .then(tagsData => {
-      // if there is no tags data then status of 404 to message no tags found
+      // if there is no database tags data then status of 404 to message no tags found
       if (!tagsData) {
         res.status(400).json({message: 'No tags found'})
         return
@@ -35,7 +33,7 @@ router.get('/tags', (req, res) => {
 router.get('/tags/:id', (req, res) => {
   // find a single tag by its `id` value
   Tag.findOne({
-    // where the db tag id matches the request parameters id provided
+    // where the database tag id matches the request parameters id provided
     where: { id: req.params.id },
     // include associated Product model attributes: product_name and product_price
     include: {
@@ -45,7 +43,7 @@ router.get('/tags/:id', (req, res) => {
   })
     // then for response
     .then(tagData => {
-      // if there is no tag data that matches response id then status 404 to message no tag found
+      // if there is no database tag data that matches request id then status 404 to message no tag found
       if (!tagData) {
         res.status(404).json({ message: 'No tag found with this id'})
         return
@@ -78,7 +76,7 @@ router.put('/tags/:id', (req, res) => {
   })
     // then for response
     .then(tagData => {
-      // if there is no database tag id data that matches response id then status of 404 to message no tag found
+      // if there is no database tag id data that matches request id then status of 404 to message no tag found
       if (!tagData) {
         res.status(404).json({ message: 'No tag found with this id to update'})
         return
@@ -98,7 +96,7 @@ router.delete('/tags/:id', (req, res) => {
     where: { id: req.params.id }
   })
     .then(tagData => {
-      // if there is no database tag id that matches the response id then status of 404 to message no tag found
+      // if there is no database tag id that matches the request id then status of 404 to message no tag found
       if (!tagData) {
         res.status(404).json({ message: 'No tag found with this id to delete'})
         return

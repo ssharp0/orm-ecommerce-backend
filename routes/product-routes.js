@@ -25,11 +25,9 @@ router.get('/products', (req, res) => {
       }
     ]
   })
-    // then return the response json products data
-    // .then(productsData => res.json(productsData))
     // then for response
     .then(productsData => {
-      // if there is no products found then status of 404 to message no products found
+      // if there is no database products found then status of 404 to message no products found
       if (!productsData) {
         res.status(400).json({message: 'No products found'})
         return
@@ -45,7 +43,7 @@ router.get('/products', (req, res) => {
 router.get('/products/:id', (req, res) => {
   // find a single product by its `id` value
   Product.findOne({
-    // where the db product id matches the request parameters id provided
+    // where the database product id matches the request parameters id provided
     where: { id: req.params.id },
     // find product attributes (all)
     attributes: ['id', 'product_name', 'product_price', 'product_stock'],
@@ -65,7 +63,7 @@ router.get('/products/:id', (req, res) => {
   })
     // then for resonse
     .then(productData => {
-      // if there is no product data that matches response id then status 404 to message no product found
+      // if there is no database product data that matches request id then status 404 to message no product found
       if (!productData) {
         res.sendStatus(404).json({message: 'No product found with this id'})
         return
@@ -167,7 +165,7 @@ router.delete('/products/:id', (req, res) => {
   })
   // then for response
     .then(productData => {
-      // if there is no product data that matches resonse id then status of 404 message no product found
+      // if there is no database product data that matches rrequest id then status of 404 message no product found
       if (!productData) {
         res.status(404).json({ message: 'No product found with this id to delete'})
         return

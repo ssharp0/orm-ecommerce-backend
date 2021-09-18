@@ -17,7 +17,7 @@ router.get('/categories', (req, res) => {
   })
     // then for response
     .then(categoriesData => {
-      // if there is no categories data then status of 404 to message no categories found
+      // if there is no database categories data then status of 404 to message no categories found
       if (!categoriesData) {
         res.status(404).json({message: 'No categories found'})
         return
@@ -33,7 +33,7 @@ router.get('/categories', (req, res) => {
 router.get('/categories/:id', (req, res) => {
   // find a single category by its `id` value
   Category.findOne({
-    // where the db category id matches the request paramters id provided
+    // where the database category id matches the request paramters id provided
     where: { id: req.params.id },
     // include associated Product model attributes (all)
     include: {
@@ -43,7 +43,7 @@ router.get('/categories/:id', (req, res) => {
   })
     // then for response
     .then(categoryData => {
-      // if there is no category data that matches response id then status of 404 to message no category found
+      // if there is no database category data that matches request id then status of 404 to message no category found
       if (!categoryData) {
         res.status(404).json({message: 'No category found with this id'})
         return
@@ -76,7 +76,7 @@ router.put('/categories/:id', (req, res) => {
   })
     // then for response
     .then(categoryData => {
-      // if there is no database category id data that matches response id then status of 404 to message no category found
+      // if there is no database category id data that matches request id then status of 404 to message no category found
       if (!categoryData) {
         res.status(404).json({message: 'No category found with this id to update'})
         return
@@ -97,7 +97,7 @@ router.delete('/categories/:id', (req, res) => {
   })
     // then for response
     .then(categoryData => {
-      // if there is no category data that matches response id then status of 404 to message no category found
+      // if there is no database category data that matches request id then status of 404 to message no category found
       if (!categoryData) {
         res.status(404).json({message: "No category found with this id to delete"})
         return

@@ -38,7 +38,7 @@ router.get('/tags/:id', (req, res) => {
     // include associated Product model attributes: product_name and product_price
     include: {
       model: Product,
-      attributes: ['product_name', 'product_price', ]
+      attributes: ['product_name', 'product_price', 'product_stock', 'category_id']
     }
   })
     // then for response

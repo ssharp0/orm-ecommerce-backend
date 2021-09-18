@@ -4,12 +4,22 @@ const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection.js')
 
 // Initialize Category model (table) by extending off Sequelize's Model class
-class Category extends Model {}
+class Category extends Model { }
 
 // setup fields and rules for Product table model with sequelize 
 Category.init(
   {
-    // define columns
+    // define id column (integer)
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    // define category name column (string)
+    category_name: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   {

@@ -10,7 +10,17 @@ class Tag extends Model {}
 // setup fields and rules for Tag table model with sequelize 
 Tag.init(
   {
-
+    // define id column (integer)
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    // define tag name column (string)
+    tag_name: {
+      type: DataTypes.STRING,
+    }
   },
   {
     // model name tag

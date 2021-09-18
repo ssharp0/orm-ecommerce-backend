@@ -33,7 +33,7 @@ Object Relational Mapping (ORM) E-Commerce back end built using MySQL2, Express 
 
 This is a back end application for an e-commerce site. 
 
-Express.js is used for the server and MySQL for the database, this app also uses Sequelize as the ORM to run SQL queries and models. 
+Express.js is used for the server and MySQL for the database, this app also uses Sequelize run SQL queries and models. 
 
 The database includes tables for categories, products, products tags, and tags (defined by models). 
 
